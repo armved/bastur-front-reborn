@@ -1,0 +1,32 @@
+<div class="mat-elevation-z8 orders-table-wrapper">
+  <mat-table #table [dataSource]="orders">
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    <!-- Customer Column -->
+    <ng-container matColumnDef="customer">
+      <mat-header-cell *matHeaderCellDef>Customer</mat-header-cell>
+      <mat-cell *matCellDef="let element" class="custom-cell">{{element.customer}}</mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <mat-header-cell *matHeaderCellDef>Weight</mat-header-cell>
+      <mat-cell *matCellDef="let element"  class="custom-cell">{{element.weight}} Kg</mat-cell>
+    </ng-container>
+
+    <!-- Price Per Kilo Column -->
+    <ng-container matColumnDef="pricePerKilo">
+      <mat-header-cell *matHeaderCellDef>Price Per Kilo</mat-header-cell>
+      <mat-cell *matCellDef="let element" class="custom-cell">{{element.pricePerKilo}} ₴</mat-cell>
+    </ng-container>
+
+    <!-- Sum Column -->
+    <ng-container matColumnDef="sum">
+      <mat-header-cell *matHeaderCellDef>Sum</mat-header-cell>
+      <mat-cell *matCellDef="let element" class="custom-cell">{{element.sum}} ₴</mat-cell>
+    </ng-container>
+
+  </mat-table>
+</div>

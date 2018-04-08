@@ -1,0 +1,10 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.title-text {
+  cursor: pointer;
+  outline: none;
+}
