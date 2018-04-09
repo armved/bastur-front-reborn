@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class OrderService {
-  private ordersCollection$: AngularFirestoreCollection<OrderDTO[]>;
+  private ordersCollection$: AngularFirestoreCollection<OrderDTO>;
 
   constructor(private db: AngularFirestore) {
     this.ordersCollection$ = this.db.collection('orders');
@@ -14,6 +14,6 @@ export class OrderService {
   public getOrders(): Observable<Order[]> {
     return this.ordersCollection$
       .valueChanges()
-      .map((orders: OrderDTO[]) => orders.map(order => new Order(order)));
+      .map((orders: OrderDTO[]) => orders.map((order: OrderDTO) => new Order(order)));
   }
 }

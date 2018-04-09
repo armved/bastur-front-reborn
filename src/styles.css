@@ -50,7 +50,6 @@ table {
   border-spacing: 0;
 }
 
-
 html {
   font-family: 'Roboto', serif;
 }
@@ -66,4 +65,16 @@ html {
 
 h1 {
   font-size: 28px;
+}
+
+.custom-cell, .custom-header-cell {
+  overflow: visible !important;;
+}
+
+.view-title {
+  text-align: center;
+}
+
+.table-wrapper {
+  margin-top: 25px;
 }

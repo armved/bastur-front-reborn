@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { CustomersViewComponent } from './customers-view/customers-view.component';
+import { CustomersTableComponent } from './customers-table/customers-table.component';
+import { CustomerService } from './customer.service';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: [CustomersViewComponent]
+  imports: [SharedModule],
+  declarations: [CustomersViewComponent, CustomersTableComponent],
+  providers: [CustomerService]
 })
-export class CustomerModule { }
+export class CustomerModule {}
