@@ -47,7 +47,7 @@ export class Order implements IOrder {
   }
 
   public getSum(): number {
-    return this.getWeight() * this.getPricePerKilo();
+    return Math.floor(this.getWeight() * this.getPricePerKilo());
   }
 
   public getWeight(): number {

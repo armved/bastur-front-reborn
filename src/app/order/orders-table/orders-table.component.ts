@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../order.service';
 import { Order, OrderJSON } from '../../shared/models/Order';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { AddOrderModalComponent } from '../add-order-modal/add-order-modal.component';
 
 @Component({
@@ -11,7 +11,8 @@ import { AddOrderModalComponent } from '../add-order-modal/add-order-modal.compo
 })
 export class OrdersTableComponent implements OnInit {
   public orders: OrderJSON[];
-  public displayedColumns = ['customer', 'weight', 'pricePerKilo', 'sum'];
+  public displayedColumns = ['customer', 'dateDelivered', 'weight', 'pricePerKilo', 'sum'];
+  private addOrderModalRef: MatDialogRef<AddOrderModalComponent>;
 
   constructor(
     private orderService: OrderService,
@@ -25,9 +26,8 @@ export class OrdersTableComponent implements OnInit {
   ngOnInit() {}
 
   openAddOrderModal() {
-    const addOrderModalRef = this.dialogService.open(AddOrderModalComponent, {
-      height: '400px',
-      width: '600px'
+    this.addOrderModalRef = this.dialogService.open(AddOrderModalComponent, {
+      width: '350px'
     });
   }
 }

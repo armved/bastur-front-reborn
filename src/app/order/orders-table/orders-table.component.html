@@ -13,6 +13,12 @@
       <mat-cell *matCellDef="let element" class="custom-cell">{{element.customer}}</mat-cell>
     </ng-container>
 
+    <!-- Date Delivered Column -->
+    <ng-container matColumnDef="dateDelivered">
+      <mat-header-cell *matHeaderCellDef class="custom-header-cell">Date Delivered</mat-header-cell>
+      <mat-cell *matCellDef="let element" class="custom-cell">{{element.dateDelivered.toDateString()}}</mat-cell>
+    </ng-container>
+
     <!-- Weight Column -->
     <ng-container matColumnDef="weight">
       <mat-header-cell *matHeaderCellDef class="custom-header-cell">Weight</mat-header-cell>

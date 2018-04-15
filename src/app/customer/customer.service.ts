@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 import { Customer, CustomerDTO } from '../shared/models/Customer';
 import { Observable } from 'rxjs/Observable';
 import { DocumentChangeAction } from 'angularfire2/firestore/interfaces';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Injectable()
 export class CustomerService {
@@ -10,6 +11,13 @@ export class CustomerService {
 
   constructor(private db: AngularFirestore) {
     this.customersCollection$ = this.db.collection('customers');
+  }
+
+  public createCustomerForm(): FormGroup {
+    return new FormGroup({
+      name: new FormControl(),
+      dateStartedToWork: new FormControl(),
+    });
   }
 
   public getCustomers(): Observable<Customer[]> {
@@ -28,4 +36,7 @@ export class CustomerService {
       });
   }
 
+  public addCustomer(customer: Customer) {
+    return this.customersCollection$.add(customer.toJSON());
+  }
 }

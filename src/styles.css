@@ -78,3 +78,13 @@ h1 {
 .table-wrapper {
   margin-top: 25px;
 }
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-controls {
+  text-align: center;
+}
+

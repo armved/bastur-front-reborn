@@ -1,8 +1,43 @@
-<h2 mat-dialog-title>Add Order</h2>
-<mat-dialog-content>
-  <div>Hello</div>
-</mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button mat-dialog-close>Submit</button>
-</mat-dialog-actions>
+<div class="form-container">
+  <h2 mat-dialog-title>Add Order</h2>
+
+  <mat-dialog-content >
+    <form [formGroup]="orderForm" (submit)="onSubmit($event)">
+      <div class="form-content">
+        <mat-form-field>
+          <mat-select [formControlName]="'customer'" placeholder="Customer">
+            <mat-option *ngFor="let customer of customers" [value]="customer.getName()">
+              {{ customer.getName() }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="number" matInput formControlName="weight" placeholder="Weight">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="number" matInput formControlName="pricePerKilo" placeholder="Price Per Kilo">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput formControlName="dateOrdered" [matDatepicker]="dateOrderedPicker" placeholder="Date Ordered">
+          <mat-datepicker-toggle matSuffix [for]="dateOrderedPicker"></mat-datepicker-toggle>
+          <mat-datepicker #dateOrderedPicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput formControlName="dateDelivered" [matDatepicker]="dateDeliveredPicker" placeholder="Date Delivered">
+          <mat-datepicker-toggle matSuffix [for]="dateDeliveredPicker"></mat-datepicker-toggle>
+          <mat-datepicker #dateDeliveredPicker></mat-datepicker>
+        </mat-form-field>
+
+        <div class="form-controls">
+          <button mat-button type="submit">Submit</button>
+          <button mat-button mat-dialog-close>Cancel</button>
+        </div>
+      </div>
+    </form>
+  </mat-dialog-content>
+
+</div>

@@ -1,7 +1,6 @@
 import { ICustomer } from '../interfaces/ICustomer';
 
 export interface CustomerDTO {
-  id: string;
   name: string;
   dateStartedToWork: Date;
 }
@@ -11,7 +10,7 @@ export class Customer implements ICustomer {
   private _name: string;
   private _dateStartedToWork: Date;
 
-  constructor(customer: CustomerDTO) {
+  constructor(customer: any) {
     this.setId(customer.id);
     this.setName(customer.name);
     this.setDateStartedToWork(customer.dateStartedToWork);
@@ -19,7 +18,6 @@ export class Customer implements ICustomer {
 
   public toJSON(): CustomerDTO {
     return {
-      id: this.getId(),
       name: this.getName(),
       dateStartedToWork: this.getDateStartedToWork(),
     };

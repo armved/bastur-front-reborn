@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer, CustomerDTO } from '../../shared/models/Customer';
 import { CustomerService } from '../customer.service';
+import { AddOrderModalComponent } from '../../order/add-order-modal/add-order-modal.component';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { AddCustomerModalComponent } from '../add-customer-modal/add-customer-modal.component';
 
 @Component({
   selector: 'app-customers-table',
@@ -8,15 +11,24 @@ import { CustomerService } from '../customer.service';
   styleUrls: ['./customers-table.component.css']
 })
 export class CustomersTableComponent implements OnInit {
-  public customers: CustomerDTO[];
+  public customers: Customer[];
   public displayedColumns = ['dateStartedToWork', 'name'];
+  private addCustomerModalRef: MatDialogRef<AddCustomerModalComponent>;
 
-  constructor(private customerService: CustomerService) { }
+  constructor(
+    private customerService: CustomerService,
+    private dialogService: MatDialog
+  ) {}
 
   ngOnInit() {
     this.customerService.getCustomers().subscribe((customers: Customer[]) => {
-      this.customers = customers.map((customer: Customer) => customer.toJSON());
+      this.customers = customers;
     });
   }
 
+  openAddOrderModal() {
+    this.addCustomerModalRef = this.dialogService.open(AddCustomerModalComponent, {
+      width: '350px'
+    });
+  }
 }
