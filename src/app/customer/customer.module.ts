@@ -7,7 +7,7 @@ import { AddCustomerModalComponent } from './add-customer-modal/add-customer-mod
 
 @NgModule({
   imports: [SharedModule],
-  declarations: [CustomersViewComponent, CustomersTableComponent],
+  declarations: [CustomersViewComponent, CustomersTableComponent, AddCustomerModalComponent],
   providers: [CustomerService],
   entryComponents: [AddCustomerModalComponent]
 })

@@ -16,8 +16,8 @@ export class AddOrderModalComponent implements OnInit {
   public customers: Customer[];
 
   constructor(
-    public dialogRef: MatDialogRef<AddOrderModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialogRef: MatDialogRef<AddOrderModalComponent>,
     private orderService: OrderService,
     private customerService: CustomerService,
   ) {}

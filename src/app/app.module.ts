@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
 import { OrderModule } from './order/order.module';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
-
+  
 @NgModule({
   declarations: [AppComponent],
   imports: [
