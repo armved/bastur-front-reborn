@@ -1,4 +1,4 @@
-import { CustomersViewComponent } from './../customers/customers-view/customers-view.component';
+import { CustomersViewComponent } from './components/customers-view/customers-view.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 

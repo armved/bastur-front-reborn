@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer } from '../../../shared/models/Customer';
-import { CustomerService } from '../customer.service';
+import { Customer } from '../../../../shared/models/Customer';
+import { CustomerService } from '../../customer.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AddCustomerModalComponent } from '../add-customer-modal/add-customer-modal.component';
 
