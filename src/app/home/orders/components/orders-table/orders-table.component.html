@@ -1,4 +1,4 @@
-<button (click)="openAddOrderModal()" mat-raised-button>Add Order</button>
+<button (click)="openAddOrderModal()" mat-raised-button>Добавить заказ</button>
 
 <div class="mat-elevation-z8 table-wrapper">
 
@@ -9,31 +9,31 @@
 
     <!-- Customer Column -->
     <ng-container matColumnDef="customer">
-      <mat-header-cell *matHeaderCellDef class="custom-header-cell">Customer</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef class="custom-header-cell">Заказчик</mat-header-cell>
       <mat-cell *matCellDef="let element" class="custom-cell">{{element.customer}}</mat-cell>
     </ng-container>
 
     <!-- Date Delivered Column -->
     <ng-container matColumnDef="dateDelivered">
-      <mat-header-cell *matHeaderCellDef class="custom-header-cell">Date Delivered</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef class="custom-header-cell">Дата доставки</mat-header-cell>
       <mat-cell *matCellDef="let element" class="custom-cell">{{element.dateDelivered.toDateString()}}</mat-cell>
     </ng-container>
 
     <!-- Weight Column -->
     <ng-container matColumnDef="weight">
-      <mat-header-cell *matHeaderCellDef class="custom-header-cell">Weight</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef class="custom-header-cell">Вес</mat-header-cell>
       <mat-cell *matCellDef="let element"  class="custom-cell">{{element.weight}} Kg</mat-cell>
     </ng-container>
 
     <!-- Price Per Kilo Column -->
     <ng-container matColumnDef="pricePerKilo">
-      <mat-header-cell *matHeaderCellDef class="custom-header-cell">Price Per Kilo</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef class="custom-header-cell">Цена за кг</mat-header-cell>
       <mat-cell *matCellDef="let element" class="custom-cell">{{element.pricePerKilo}} ₴</mat-cell>
     </ng-container>
 
     <!-- Sum Column -->
     <ng-container matColumnDef="sum">
-      <mat-header-cell *matHeaderCellDef class="custom-header-cell">Sum</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef class="custom-header-cell">Сумма</mat-header-cell>
       <mat-cell *matCellDef="let element" class="custom-cell">{{element.sum}} ₴</mat-cell>
     </ng-container>
 

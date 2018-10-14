@@ -1,4 +1,4 @@
-<button (click)="openAddOrderModal()" mat-raised-button>Add Customer</button>
+<button (click)="openAddOrderModal()" mat-raised-button>Добавить заказчика</button>
 
 <div class="mat-elevation-z8 table-wrapper">
   <mat-table #table [dataSource]="customers">
@@ -8,13 +8,13 @@
 
     <!-- Started To Work Column -->
     <ng-container matColumnDef="dateStartedToWork">
-      <mat-header-cell *matHeaderCellDef class="custom-header-cell">Started To Work</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef class="custom-header-cell">Дата начала работы</mat-header-cell>
       <mat-cell *matCellDef="let customer" class="custom-cell">{{customer.dateStartedToWork.toDateString()}}</mat-cell>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef class="custom-header-cell">Name</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef class="custom-header-cell">Имя</mat-header-cell>
       <mat-cell *matCellDef="let customer"  class="custom-cell">{{customer.name}}</mat-cell>
     </ng-container>
 
