@@ -8,9 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { OrderModule } from './order/order.module';
-import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
-  
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -20,7 +19,6 @@ import { environment } from '../environments/environment';
     OrderModule,
     HomeModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase)
   ],
   exports: [RouterModule],
   providers: [],

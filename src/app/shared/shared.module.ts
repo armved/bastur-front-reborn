@@ -6,7 +6,6 @@ import {
   MatTableModule,
   MatToolbarModule
 } from '@angular/material';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -14,7 +13,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    AngularFirestoreModule,
     MatToolbarModule,
     MatButtonModule,
     MatTableModule,

@@ -31,7 +31,7 @@ export class AddOrderModalComponent implements OnInit {
     event.preventDefault();
     const order = new Order(this.orderForm.value);
 
-    this.orderService.addOrder(order).then(() => {
+    this.orderService.addOrder(order).subscribe(() => {
       this.dialogRef.close();
     });
   }
