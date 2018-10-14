@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../../order.service';
-import { Order, OrderJSON } from '../../../../shared/models/Order';
+import { Order } from '../../../../shared/models/Order';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AddOrderModalComponent } from '../add-order-modal/add-order-modal.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-orders-table',
@@ -10,7 +11,7 @@ import { AddOrderModalComponent } from '../add-order-modal/add-order-modal.compo
   styleUrls: ['./orders-table.component.css']
 })
 export class OrdersTableComponent implements OnInit {
-  public orders: OrderJSON[];
+  public orders$: Observable<Order[]>;
   public displayedColumns = ['customer', 'dateDelivered', 'weight', 'pricePerKilo', 'sum'];
   private addOrderModalRef: MatDialogRef<AddOrderModalComponent>;
 
@@ -18,9 +19,7 @@ export class OrdersTableComponent implements OnInit {
     private orderService: OrderService,
     private dialogService: MatDialog
   ) {
-    this.orderService.getOrders().subscribe((orders: Order[]) => {
-      this.orders = orders.map((order: Order) => order.toJSON());
-    });
+    this.orders$ = this.orderService.getOrders();
   }
 
   ngOnInit() {}

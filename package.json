@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
+    "db": "json-server --watch ./src/db/db.json",
     "start": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
@@ -23,7 +24,9 @@
     "@angular/platform-browser": "^6.1.10",
     "@angular/platform-browser-dynamic": "^6.1.10",
     "@angular/router": "^6.1.10",
+    "class-transformer": "^0.1.9",
     "core-js": "^2.5.7",
+    "json-server": "^0.14.0",
     "rxjs": "^6.3.3",
     "rxjs-compat": "^6.3.3",
     "zone.js": "^0.8.26"

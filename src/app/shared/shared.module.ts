@@ -8,10 +8,12 @@ import {
 } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
+    HttpClientModule,
     ReactiveFormsModule,
     MatToolbarModule,
     MatButtonModule,
@@ -25,6 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   exports: [
     CommonModule,
+    HttpClientModule,
     ReactiveFormsModule,
     MatToolbarModule,
     MatButtonModule,

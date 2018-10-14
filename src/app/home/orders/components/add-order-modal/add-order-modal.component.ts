@@ -1,3 +1,4 @@
+import { plainToClass } from 'class-transformer';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { OrderService } from '../../order.service';
@@ -29,7 +30,7 @@ export class AddOrderModalComponent implements OnInit {
 
   onSubmit(event: Event) {
     event.preventDefault();
-    const order = new Order(this.orderForm.value);
+    const order = plainToClass(Order, this.orderForm.value as Object);
 
     this.orderService.addOrder(order).subscribe(() => {
       this.dialogRef.close();

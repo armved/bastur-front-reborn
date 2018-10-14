@@ -1,3 +1,4 @@
+import { CustomerApiService } from './customer-api.service';
 import { Injectable } from '@angular/core';
 import { Customer } from '../../shared/models/Customer';
 import { Observable } from 'rxjs/Observable';
@@ -9,6 +10,8 @@ import { of } from 'rxjs';
 })
 export class CustomerService {
 
+  constructor(private customerApi: CustomerApiService) {}
+
   public createCustomerForm(): FormGroup {
     return new FormGroup({
       name: new FormControl(),
@@ -17,12 +20,10 @@ export class CustomerService {
   }
 
   public getCustomers(): Observable<Customer[]> {
-    // TODO
-    return of([]);
+    return this.customerApi.getCustomers();
   }
 
   public addCustomer(customer: Customer): Observable<Customer> {
-    // TODO
-    return of();
+    return this.customerApi.addCustomer(customer);
   }
 }

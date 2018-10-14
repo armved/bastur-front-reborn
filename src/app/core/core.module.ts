@@ -1,11 +1,10 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
 import { CoreRoutingModule } from './core-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     CoreRoutingModule
   ],
   exports: [

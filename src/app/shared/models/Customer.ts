@@ -1,50 +1,10 @@
-import { ICustomer } from '../interfaces/ICustomer';
+import { Type } from 'class-transformer';
 
-export interface CustomerDTO {
-  name: string;
-  dateStartedToWork: Date;
-}
+export class Customer {
+  public id: string;
 
-export class Customer implements ICustomer {
-  private _id: string;
-  private _name: string;
-  private _dateStartedToWork: Date;
+  public name: string;
 
-  constructor(customer: any) {
-    this.setId(customer.id);
-    this.setName(customer.name);
-    this.setDateStartedToWork(customer.dateStartedToWork);
-  }
-
-  public toJSON(): CustomerDTO {
-    return {
-      name: this.getName(),
-      dateStartedToWork: this.getDateStartedToWork(),
-    };
-  }
-
-  public getId(): string {
-    return this._id;
-  }
-
-  public setId(id: string): void {
-    this._id = id;
-  }
-
-  public getName(): string {
-    return this._name;
-  }
-
-  public setName(name: string): void {
-    this._name = name;
-  }
-
-  public getDateStartedToWork(): Date {
-    return this._dateStartedToWork;
-  }
-
-  public setDateStartedToWork(dateStartedToWork: Date): void {
-    this._dateStartedToWork = dateStartedToWork;
-  }
-
+  @Type(() => Date)
+  public dateStartedToWork: string;
 }

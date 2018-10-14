@@ -9,13 +9,13 @@
     <!-- Started To Work Column -->
     <ng-container matColumnDef="dateStartedToWork">
       <mat-header-cell *matHeaderCellDef class="custom-header-cell">Started To Work</mat-header-cell>
-      <mat-cell *matCellDef="let customer" class="custom-cell">{{customer.getDateStartedToWork().toDateString()}}</mat-cell>
+      <mat-cell *matCellDef="let customer" class="custom-cell">{{customer.dateStartedToWork.toDateString()}}</mat-cell>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef class="custom-header-cell">Name</mat-header-cell>
-      <mat-cell *matCellDef="let customer"  class="custom-cell">{{customer.getName()}}</mat-cell>
+      <mat-cell *matCellDef="let customer"  class="custom-cell">{{customer.name}}</mat-cell>
     </ng-container>
 
   </mat-table>
