@@ -16,8 +16,13 @@ export class CustomerApiService extends BaseApiService {
     );
   }
 
-  public addCustomer(customer: Customer): Observable<Customer> {
-    //
-    return null;
+  public createCustomer(customer: Customer): Observable<Customer> {
+    return this.http.post(`${this.baseApiUrl}/customers`, customer).pipe(
+      map((responseCustomer: Customer) => plainToClass(Customer, responseCustomer))
+    );
+  }
+
+  public deleteCustomer(id: number): Observable<any> {
+    return this.http.delete(`${this.baseApiUrl}/customers/${id}`);
   }
 }

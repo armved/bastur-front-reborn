@@ -18,5 +18,14 @@
       <mat-cell *matCellDef="let customer"  class="custom-cell">{{customer.name}}</mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef class="custom-header-cell column-right">Действия</mat-header-cell>
+      <mat-cell  *matCellDef="let customer" class="custom-cell column-right">
+        <button mat-mini-fab color="warn" (click)="deleteCustomer(customer.id)">
+          <mat-icon>delete_forever</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
   </mat-table>
 </div>

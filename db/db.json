@@ -2,47 +2,52 @@
   "customers": [
     {
       "id": 1,
-      "name": "Mozart",
+      "name": "Моцарт",
       "dateStartedToWork": "2018-10-10"
     },
     {
       "id": 2,
-      "name": "Zefir",
+      "name": "Зефир",
       "dateStartedToWork": "2018-10-9"
     },
     {
       "id": 3,
-      "name": "Kluklva",
+      "name": "Клюква",
       "dateStartedToWork": "2018-10-8"
     },
     {
       "id": 4,
-      "name": "Hit Sezona",
+      "name": "Хит Сезона",
       "dateStartedToWork": "2018-10-7"
     },
     {
       "id": 5,
-      "name": "Boho",
+      "name": "Бохо",
       "dateStartedToWork": "2018-10-6"
+    },
+    {
+      "name": "Барбадос",
+      "dateStartedToWork": "2018-10-14T21:07:21.896Z",
+      "id": 6
     }
   ],
   "orders": [
     {
-      "customer": "Mozart",
+      "customer": "Моцарт",
       "weight": 2.2,
       "pricePerKilo": 360,
       "dateOrdered": "2018-10-8",
       "dateDelivered": "2018-10-9"
     },
     {
-      "customer": "Klukva",
+      "customer": "Клюква",
       "weight": 1.5,
       "pricePerKilo": 360,
       "dateOrdered": "2018-10-5",
       "dateDelivered": "2018-10-6"
     },
     {
-      "customer": "Boho",
+      "customer": "Бохо",
       "weight": 1,
       "pricePerKilo": 360,
       "dateOrdered": "2018-10-1",

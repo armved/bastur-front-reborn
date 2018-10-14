@@ -9,19 +9,8 @@ import { of, BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class OrderService {
-  private defaultPricePerKilo = 330;
 
   constructor(private orderApi: OrderApiService) {}
-
-  public createOrderForm(): FormGroup {
-    return new FormGroup({
-      customer: new FormControl(),
-      weight: new FormControl(),
-      pricePerKilo: new FormControl(this.defaultPricePerKilo),
-      dateOrdered: new FormControl(),
-      dateDelivered: new FormControl(),
-    });
-  }
 
   public getOrders(): Observable<Order[]> {
     return this.orderApi.getOrders();

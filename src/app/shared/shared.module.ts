@@ -4,7 +4,8 @@ import {
   MatButtonModule, MatDatepickerModule,
   MatFormFieldModule, MatInputModule, MatNativeDateModule, MatSelectModule,
   MatTableModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatIconModule
 } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -24,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
+    MatIconModule,
   ],
   exports: [
     CommonModule,
@@ -38,6 +40,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
+    MatIconModule,
   ],
   declarations: []
 })

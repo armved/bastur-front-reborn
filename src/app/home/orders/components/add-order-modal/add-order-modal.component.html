@@ -1,40 +1,40 @@
 <div class="form-container">
-  <h2 mat-dialog-title>Add Order</h2>
+  <h2 mat-dialog-title class="modal-title">Новый заказ</h2>
 
   <mat-dialog-content >
-    <form [formGroup]="orderForm" (submit)="onSubmit($event)">
+    <form [formGroup]="form" (submit)="onSubmit($event)">
       <div class="form-content">
         <mat-form-field>
-          <mat-select [formControlName]="'customer'" placeholder="Customer">
-            <mat-option *ngFor="let customer of customers" [value]="customer.getName()">
-              {{ customer.getName() }}
+          <mat-select [formControlName]="'customer'" placeholder="Заказчик">
+            <mat-option *ngFor="let customer of customers" [value]="customer.name">
+              {{ customer.name }}
             </mat-option>
           </mat-select>
         </mat-form-field>
 
         <mat-form-field>
-          <input type="number" matInput formControlName="weight" placeholder="Weight">
+          <input type="number" matInput formControlName="weight" placeholder="Вес">
         </mat-form-field>
 
         <mat-form-field>
-          <input type="number" matInput formControlName="pricePerKilo" placeholder="Price Per Kilo">
+          <input type="number" matInput formControlName="pricePerKilo" placeholder="Цена за кг">
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput formControlName="dateOrdered" [matDatepicker]="dateOrderedPicker" placeholder="Date Ordered">
+          <input matInput formControlName="dateOrdered" [matDatepicker]="dateOrderedPicker" placeholder="Дата заказа">
           <mat-datepicker-toggle matSuffix [for]="dateOrderedPicker"></mat-datepicker-toggle>
           <mat-datepicker #dateOrderedPicker></mat-datepicker>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput formControlName="dateDelivered" [matDatepicker]="dateDeliveredPicker" placeholder="Date Delivered">
+          <input matInput formControlName="dateDelivered" [matDatepicker]="dateDeliveredPicker" placeholder="Дата доставки">
           <mat-datepicker-toggle matSuffix [for]="dateDeliveredPicker"></mat-datepicker-toggle>
           <mat-datepicker #dateDeliveredPicker></mat-datepicker>
         </mat-form-field>
 
         <div class="form-controls">
-          <button mat-button type="submit">Submit</button>
-          <button mat-button mat-dialog-close>Cancel</button>
+          <button mat-button type="submit">Создать</button>
+          <button mat-button mat-dialog-close>Отмена</button>
         </div>
       </div>
     </form>
