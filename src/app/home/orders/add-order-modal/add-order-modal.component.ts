@@ -1,10 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { OrderService } from '../order.service';
-import { Order } from '../../shared/models/Order';
+import { Order } from '../../../shared/models/Order';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { Customer } from '../../shared/models/Customer';
-import { CustomerService } from '../../customer/customer.service';
+import { Customer } from '../../../shared/models/Customer';
+import { CustomerService } from '../../customers/customer.service';
 
 @Component({
   selector: 'app-add-order-modal',

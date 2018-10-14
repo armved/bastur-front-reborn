@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Customer, CustomerDTO } from '../shared/models/Customer';
+import { Customer } from '../../shared/models/Customer';
 import { Observable } from 'rxjs/Observable';
 import { FormControl, FormGroup } from '@angular/forms';
 import { of } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class CustomerService {
 
   public createCustomerForm(): FormGroup {

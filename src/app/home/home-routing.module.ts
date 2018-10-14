@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { orderRoutes } from '../order/order-routing.module';
-import { customerRoutes } from '../customer/customer-routing.module';
+import { HomeComponent } from './home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
@@ -10,11 +8,21 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     children: [
-      { path: '', component: DashboardComponent },
-      ...orderRoutes,
-      ...customerRoutes
+      {
+        path: '',
+        pathMatch: 'full',
+        component: DashboardComponent,
+      },
+      {
+        path: 'customers',
+        loadChildren: './customers/customers.module#CustomersModule',
+      },
+      {
+        path: 'orders',
+        loadChildren: './orders/orders.module#OrdersModule',
+      },
     ]
-  }
+  },
 ];
 
 @NgModule({

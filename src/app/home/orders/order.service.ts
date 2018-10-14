@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Order, OrderDTO } from '../shared/models/Order';
+import { Order } from '../../shared/models/Order';
 import { Observable } from 'rxjs/Observable';
 import { FormControl, FormGroup } from '@angular/forms';
 import { of } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class OrderService {
   private defaultPricePerKilo = 330;
 
