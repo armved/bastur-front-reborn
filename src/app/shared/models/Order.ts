@@ -1,6 +1,7 @@
 import { Type } from 'class-transformer';
 
 export class Order {
+  public id: number;
   public customer: string;
   public weight: number;
   public pricePerKilo: number;

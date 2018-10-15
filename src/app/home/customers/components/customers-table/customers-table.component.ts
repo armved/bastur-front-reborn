@@ -11,7 +11,7 @@ import { AddCustomerModalComponent } from '../add-customer-modal/add-customer-mo
   styleUrls: ['./customers-table.component.css']
 })
 export class CustomersTableComponent implements OnInit {
-  public customers: Customer[];
+  public customers$: Observable<Customer[]>;
   public displayedColumns = ['dateStartedToWork', 'name', 'actions'];
   private addCustomerModalRef: MatDialogRef<AddCustomerModalComponent>;
 
@@ -21,15 +21,7 @@ export class CustomersTableComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    this.customerService.getCustomers().subscribe((customers: Customer[]) => {
-      this.customers = customers;
-    });
-    this.customerService.newCustomer$.subscribe((customer: Customer) => {
-      this.customers = [...this.customers, customer];
-    });
-    this.customerService.removedCustomerId$.subscribe((id: number) => {
-      this.customers = this.customers.filter((customer: Customer) => customer.id !== id);
-    });
+    this.customers$ = this.customerService.getCustomers();
   }
 
   public openAddOrderModal(): void {

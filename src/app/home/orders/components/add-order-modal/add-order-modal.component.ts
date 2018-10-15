@@ -47,8 +47,6 @@ export class AddOrderModalComponent extends BaseFormComponent implements OnInit 
 
     const order = plainToClass(Order, this.form.value as Object);
 
-    this.orderService.addOrder(order).subscribe(() => {
-      this.dialogRef.close();
-    });
+    this.orderService.createOrder(order).subscribe(() => this.dialogRef.close());
   }
 }

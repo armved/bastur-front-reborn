@@ -16,8 +16,13 @@ export class OrderApiService extends BaseApiService {
     );
   }
 
-  public addOrder(order: Order): Observable<Order> {
-    //
-    return null;
+  public createOrder(order: Order): Observable<Order> {
+    return this.http.post(`${this.baseApiUrl}/orders`, order).pipe(
+      map((responseOrder: Order) => plainToClass(Order, responseOrder)),
+    );
+  }
+
+  public deleteOrder(id: number): Observable<any> {
+    return this.http.delete(`${this.baseApiUrl}/orders/${id}`);
   }
 }

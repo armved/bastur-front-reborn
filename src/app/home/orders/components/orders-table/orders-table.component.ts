@@ -12,21 +12,25 @@ import { Observable } from 'rxjs';
 })
 export class OrdersTableComponent implements OnInit {
   public orders$: Observable<Order[]>;
-  public displayedColumns = ['customer', 'dateDelivered', 'weight', 'pricePerKilo', 'sum'];
+  public displayedColumns = ['customer', 'dateDelivered', 'weight', 'pricePerKilo', 'sum', 'actions'];
   private addOrderModalRef: MatDialogRef<AddOrderModalComponent>;
 
   constructor(
     private orderService: OrderService,
     private dialogService: MatDialog
-  ) {
+  ) {}
+
+  public ngOnInit(): void {
     this.orders$ = this.orderService.getOrders();
   }
 
-  ngOnInit() {}
-
-  openAddOrderModal() {
+  public openAddOrderModal(): void {
     this.addOrderModalRef = this.dialogService.open(AddOrderModalComponent, {
       width: '350px'
     });
+  }
+
+  public deleteOrder(id: number): void {
+    this.orderService.deleteOrder(id).subscribe();
   }
 }

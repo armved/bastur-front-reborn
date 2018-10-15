@@ -3,18 +3,16 @@ import { Injectable } from '@angular/core';
 import { Customer } from '../../shared/models/Customer';
 import { Observable } from 'rxjs/Observable';
 import { FormControl, FormGroup } from '@angular/forms';
-import { of, Subject } from 'rxjs';
+import { of, Subject, BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CustomerService {
-  private newCustomerSource: Subject<Customer> = new Subject();
-  public newCustomer$ = this.newCustomerSource.asObservable();
-
-  private removedCustomerIdSource: Subject<number> = new Subject();
-  public removedCustomerId$ = this.removedCustomerIdSource.asObservable();
+  private customersSource: Subject<Customer[]> = new Subject();
+  private customers: Customer[];
+  public customers$ = this.customersSource.asObservable();
 
   constructor(private customerApi: CustomerApiService) {}
 
@@ -26,18 +24,30 @@ export class CustomerService {
   }
 
   public getCustomers(): Observable<Customer[]> {
-    return this.customerApi.getCustomers();
+    this.customerApi.getCustomers()
+      .subscribe((customers: Customer[]) => {
+        this.customers = customers;
+        this.customersSource.next(this.customers);
+      });
+
+    return this.customers$;
   }
 
   public createCustomer(customer: Customer): Observable<Customer> {
     return this.customerApi.createCustomer(customer).pipe(
-      tap((responseCustomer: Customer) => this.newCustomerSource.next(responseCustomer))
+      tap((responseCustomer) => {
+        this.customers = [...this.customers, responseCustomer];
+        this.customersSource.next(this.customers);
+      })
     );
   }
 
   public deleteCustomer(id: number): Observable<any> {
     return this.customerApi.deleteCustomer(id).pipe(
-      tap(() => this.removedCustomerIdSource.next(id))
+      tap(() => {
+        this.customers = this.customers.filter((customer: Customer) => customer.id !== id);
+        this.customersSource.next(this.customers);
+      })
     );
   }
 }

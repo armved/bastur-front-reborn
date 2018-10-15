@@ -1,7 +1,7 @@
 <button (click)="openAddOrderModal()" mat-raised-button>Добавить заказчика</button>
 
 <div class="mat-elevation-z8 table-wrapper">
-  <mat-table #table [dataSource]="customers">
+  <mat-table #table [dataSource]="customers$ | async">
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
@@ -18,6 +18,7 @@
       <mat-cell *matCellDef="let customer"  class="custom-cell">{{customer.name}}</mat-cell>
     </ng-container>
 
+    <!-- Actions Column -->
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef class="custom-header-cell column-right">Действия</mat-header-cell>
       <mat-cell  *matCellDef="let customer" class="custom-cell column-right">

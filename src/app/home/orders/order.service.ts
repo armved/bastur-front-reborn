@@ -1,23 +1,45 @@
-import { OrderApiService } from './order-api.service';
 import { Injectable } from '@angular/core';
-import { Order } from '../../shared/models/Order';
 import { Observable } from 'rxjs/Observable';
-import { FormControl, FormGroup } from '@angular/forms';
-import { of, BehaviorSubject } from 'rxjs';
+import { Order } from '../../shared/models/Order';
+import { OrderApiService } from './order-api.service';
+import { Subject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OrderService {
+  private ordersSource: Subject<Order[]> = new Subject();
+  private orders: Order[];
+  public orders$ = this.ordersSource.asObservable();
 
   constructor(private orderApi: OrderApiService) {}
 
   public getOrders(): Observable<Order[]> {
-    return this.orderApi.getOrders();
+    this.orderApi.getOrders()
+      .subscribe((orders: Order[]) => {
+        this.orders = orders;
+        this.ordersSource.next(this.orders);
+      });
+
+    return this.orders$;
   }
 
-  public addOrder(order: Order): Observable<Order> {
-    // TODO
-    return of(order);
+  public createOrder(order: Order): Observable<Order> {
+    return this.orderApi.createOrder(order).pipe(
+      tap((responseOrder: Order) => {
+        this.orders = [...this.orders, responseOrder];
+        this.ordersSource.next(this.orders);
+      })
+    );
+  }
+
+  public deleteOrder(id: number): Observable<any> {
+    return this.orderApi.deleteOrder(id).pipe(
+      tap(() => {
+        this.orders = this.orders.filter((order: Order) => order.id !== id);
+        this.ordersSource.next(this.orders);
+      })
+    );
   }
 }
