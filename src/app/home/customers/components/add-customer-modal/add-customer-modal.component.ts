@@ -1,4 +1,4 @@
-import { Customer } from '../../../../shared/models/Customer';
+import { Customer } from '../../../../shared/models/customer.model';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component } from '@angular/core';
 import { BaseFormComponent } from '../../../../shared/components/base-form.component';
@@ -12,10 +12,9 @@ import { MatDialogRef } from '@angular/material';
   styleUrls: ['./add-customer-modal.component.css']
 })
 export class AddCustomerModalComponent extends BaseFormComponent {
-
   constructor(
     public dialogRef: MatDialogRef<AddCustomerModalComponent>,
-    private customerService: CustomerService,
+    private customerService: CustomerService
   ) {
     super();
   }
@@ -23,7 +22,7 @@ export class AddCustomerModalComponent extends BaseFormComponent {
   protected createForm(): FormGroup {
     return new FormGroup({
       name: new FormControl(),
-      dateStartedToWork: new FormControl(new Date()),
+      dateStartedToWork: new FormControl(new Date())
     });
   }
 
@@ -32,7 +31,8 @@ export class AddCustomerModalComponent extends BaseFormComponent {
 
     const customer = plainToClass(Customer, this.form.value as Object);
 
-    this.customerService.createCustomer(customer)
+    this.customerService
+      .createCustomer(customer)
       .subscribe((responseCustomer: Customer) => this.dialogRef.close());
   }
 }

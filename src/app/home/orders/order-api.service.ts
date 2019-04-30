@@ -1,28 +1,31 @@
-import { BaseApiService } from './../../core/base-api.service';
-import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { plainToClass } from 'class-transformer';
-import { Order } from '../../shared/models/Order';
+import { ApiRequest } from '@shared/models/api/api-request.model';
+import { Observable } from 'rxjs/Observable';
+import { Order } from '../../shared/models/order.model';
+import { BaseApiService } from './../../core/base-api.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OrderApiService extends BaseApiService {
-
   public getOrders(): Observable<Order[]> {
-    return this.http.get(`${this.baseApiUrl}/orders`).pipe(
-      map((orders: Order[]) => plainToClass(Order, orders)),
-    );
+    const request = new ApiRequest(this.baseApiUrl).withMethod('GET').withUrl('/orders');
+
+    return this.makeRequest<Order>(request, Order, true);
   }
 
   public createOrder(order: Order): Observable<Order> {
-    return this.http.post(`${this.baseApiUrl}/orders`, order).pipe(
-      map((responseOrder: Order) => plainToClass(Order, responseOrder)),
-    );
+    const request = new ApiRequest(this.baseApiUrl)
+      .withMethod('POST')
+      .withUrl('/orders')
+      .withBody(order);
+
+    return this.makeRequest<Order>(request, Order);
   }
 
   public deleteOrder(id: number): Observable<any> {
-    return this.http.delete(`${this.baseApiUrl}/orders/${id}`);
+    const request = new ApiRequest(this.baseApiUrl).withMethod('DELETE').withUrl(`/orders/${id}`);
+
+    return this.makeRequest(request, Object);
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../../order.service';
-import { Order } from '../../../../shared/models/Order';
+import { Order } from '../../../../shared/models/order.model';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AddOrderModalComponent } from '../add-order-modal/add-order-modal.component';
 import { Observable } from 'rxjs';
@@ -12,7 +12,14 @@ import { Observable } from 'rxjs';
 })
 export class OrdersTableComponent implements OnInit {
   public orders$: Observable<Order[]>;
-  public displayedColumns = ['customer', 'dateDelivered', 'weight', 'pricePerKilo', 'sum', 'actions'];
+  public displayedColumns = [
+    'customer',
+    'dateDelivered',
+    'weight',
+    'pricePerKilo',
+    'sum',
+    'actions'
+  ];
   private addOrderModalRef: MatDialogRef<AddOrderModalComponent>;
 
   constructor(

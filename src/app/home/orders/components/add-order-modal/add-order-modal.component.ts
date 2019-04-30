@@ -4,8 +4,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { OrderService } from '../../order.service';
-import { Order } from '../../../../shared/models/Order';
-import { Customer } from '../../../../shared/models/Customer';
+import { Order } from '../../../../shared/models/order.model';
+import { Customer } from '../../../../shared/models/customer.model';
 import { CustomerService } from '../../../customers/customer.service';
 import { BaseFormComponent } from '../../../../shared/components/base-form.component';
 
@@ -14,14 +14,15 @@ import { BaseFormComponent } from '../../../../shared/components/base-form.compo
   templateUrl: './add-order-modal.component.html',
   styleUrls: ['./add-order-modal.component.css']
 })
-export class AddOrderModalComponent extends BaseFormComponent implements OnInit {
+export class AddOrderModalComponent extends BaseFormComponent
+  implements OnInit {
   public customers: Customer[];
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<AddOrderModalComponent>,
     private orderService: OrderService,
-    private customerService: CustomerService,
+    private customerService: CustomerService
   ) {
     super();
   }
@@ -29,7 +30,9 @@ export class AddOrderModalComponent extends BaseFormComponent implements OnInit 
   public ngOnInit(): void {
     super.ngOnInit();
 
-    this.customerService.getCustomers().subscribe(customers => this.customers = customers);
+    this.customerService
+      .getCustomers()
+      .subscribe(customers => (this.customers = customers));
   }
 
   protected createForm(): FormGroup {
@@ -38,7 +41,7 @@ export class AddOrderModalComponent extends BaseFormComponent implements OnInit 
       weight: new FormControl(),
       pricePerKilo: new FormControl(defaultOrderOptions.pricePerKilo),
       dateOrdered: new FormControl(),
-      dateDelivered: new FormControl(),
+      dateDelivered: new FormControl()
     });
   }
 
@@ -47,6 +50,8 @@ export class AddOrderModalComponent extends BaseFormComponent implements OnInit 
 
     const order = plainToClass(Order, this.form.value as Object);
 
-    this.orderService.createOrder(order).subscribe(() => this.dialogRef.close());
+    this.orderService
+      .createOrder(order)
+      .subscribe(() => this.dialogRef.close());
   }
 }

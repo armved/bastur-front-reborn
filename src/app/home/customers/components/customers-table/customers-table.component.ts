@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
-import { Customer } from '../../../../shared/models/Customer';
+import { Customer } from '../../../../shared/models/customer.model';
 import { CustomerService } from '../../customer.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AddCustomerModalComponent } from '../add-customer-modal/add-customer-modal.component';
@@ -25,9 +25,12 @@ export class CustomersTableComponent implements OnInit {
   }
 
   public openAddOrderModal(): void {
-    this.addCustomerModalRef = this.dialogService.open(AddCustomerModalComponent, {
-      width: '350px'
-    });
+    this.addCustomerModalRef = this.dialogService.open(
+      AddCustomerModalComponent,
+      {
+        width: '350px'
+      }
+    );
   }
 
   public deleteCustomer(id: number): void {

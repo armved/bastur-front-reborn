@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Order } from '../../shared/models/Order';
+import { Order } from '../../shared/models/order.model';
 import { OrderApiService } from './order-api.service';
 import { Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class OrderService {
   private ordersSource: Subject<Order[]> = new Subject();
@@ -16,11 +16,10 @@ export class OrderService {
   constructor(private orderApi: OrderApiService) {}
 
   public getOrders(): Observable<Order[]> {
-    this.orderApi.getOrders()
-      .subscribe((orders: Order[]) => {
-        this.orders = orders;
-        this.ordersSource.next(this.orders);
-      });
+    this.orderApi.getOrders().subscribe((orders: Order[]) => {
+      this.orders = orders;
+      this.ordersSource.next(this.orders);
+    });
 
     return this.orders$;
   }

@@ -1,28 +1,33 @@
-import { BaseApiService } from './../../core/base-api.service';
-import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { Customer } from '../../shared/models/Customer';
-import { plainToClass } from 'class-transformer';
+import { BaseApiService } from '@core/base-api.service';
+import { ApiRequest } from '@shared/models/api/api-request.model';
+import { Customer } from '@shared/models/customer.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CustomerApiService extends BaseApiService {
-
   public getCustomers(): Observable<Customer[]> {
-    return this.http.get(`${this.baseApiUrl}/customers`).pipe(
-      map((customers: Customer[]) => plainToClass(Customer, customers)),
-    );
+    const request = new ApiRequest(this.baseApiUrl).withMethod('GET').withUrl('/customers');
+
+    return this.makeRequest<Customer>(request, Customer, true);
   }
 
   public createCustomer(customer: Customer): Observable<Customer> {
-    return this.http.post(`${this.baseApiUrl}/customers`, customer).pipe(
-      map((responseCustomer: Customer) => plainToClass(Customer, responseCustomer))
-    );
+    const request = new ApiRequest(this.baseApiUrl)
+      .withMethod('POST')
+      .withUrl('/customers')
+      .withBody(customer);
+
+    return this.makeRequest<Customer>(request, Customer);
   }
 
   public deleteCustomer(id: number): Observable<any> {
-    return this.http.delete(`${this.baseApiUrl}/customers/${id}`);
+    const request = new ApiRequest(this.baseApiUrl)
+      .withMethod('DELETE')
+      .withUrl(`/customers/${id}`);
+
+    return this.makeRequest(request, Object);
   }
 }

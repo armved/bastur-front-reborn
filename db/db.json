@@ -4,16 +4,29 @@
       "id": 1,
       "name": "Test Customer",
       "dateStartedToWork": "2018-10-10"
+    },
+    {
+      "name": "Авет",
+      "dateStartedToWork": "2019-04-29T20:58:40.877Z",
+      "id": 2
     }
   ],
   "orders": [
     {
-      "id": 1,
-      "customer": "Test Customer",
-      "weight": 2.2,
-      "pricePerKilo": 800,
-      "dateOrdered": "2018-10-8",
-      "dateDelivered": "2018-10-9"
+      "customer": "Авет",
+      "weight": 2,
+      "pricePerKilo": 360,
+      "dateOrdered": "2019-04-28T21:00:00.000Z",
+      "dateDelivered": "2019-04-28T21:00:00.000Z",
+      "id": 2
+    },
+    {
+      "customer": "Авет",
+      "weight": 2,
+      "pricePerKilo": 360,
+      "dateOrdered": "2019-04-17T21:00:00.000Z",
+      "dateDelivered": "2019-04-24T21:00:00.000Z",
+      "id": 3
     }
   ]
 }
