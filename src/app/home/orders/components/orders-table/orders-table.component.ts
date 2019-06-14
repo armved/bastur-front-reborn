@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../../order.service';
 import { Order } from '../../../../shared/models/order.model';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AddOrderModalComponent } from '../add-order-modal/add-order-modal.component';
 import { Observable } from 'rxjs';
 

@@ -2,7 +2,7 @@ import { defaultOrderOptions } from './../../../../shared/constants/default-orde
 import { plainToClass } from 'class-transformer';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { OrderService } from '../../order.service';
 import { Order } from '../../../../shared/models/order.model';
 import { Customer } from '../../../../shared/models/customer.model';

@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 import { BaseFormComponent } from '../../../../shared/components/base-form.component';
 import { plainToClass } from 'class-transformer';
 import { CustomerService } from '../../customer.service';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-customer-modal',

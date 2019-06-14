@@ -2,7 +2,7 @@ import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { Customer } from '../../../../shared/models/customer.model';
 import { CustomerService } from '../../customer.service';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AddCustomerModalComponent } from '../add-customer-modal/add-customer-modal.component';
 
 @Component({
