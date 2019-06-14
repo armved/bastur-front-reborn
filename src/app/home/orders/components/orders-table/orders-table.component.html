@@ -2,7 +2,7 @@
 
 <div class="mat-elevation-z8 table-wrapper">
 
-  <mat-table #table [dataSource]="orders$ | async">
+  <mat-table #table [dataSource]="dataSource$ | async">
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
@@ -48,4 +48,6 @@
     </ng-container>
 
   </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[10, 15, 25]" showFirstLastButtons></mat-paginator>
 </div>

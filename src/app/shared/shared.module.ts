@@ -12,6 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatPaginatorModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatNativeDateModule,
     MatSelectModule,
     MatIconModule,
+    MatPaginatorModule,
   ],
   exports: [
     CommonModule,
@@ -43,6 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatNativeDateModule,
     MatSelectModule,
     MatIconModule,
+    MatPaginatorModule,
   ],
   declarations: []
 })

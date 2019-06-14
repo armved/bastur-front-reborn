@@ -6,14 +6,16 @@
       <div class="form-content">
         <mat-form-field>
           <mat-select [formControlName]="'customer'" placeholder="Заказчик">
-            <mat-option *ngFor="let customer of customers" [value]="customer.name">
+            <mat-option *ngFor="let customer of customers$" [value]="customer.name">
               {{ customer.name }}
             </mat-option>
           </mat-select>
+          <mat-error *ngIf="form.get('customer').hasError('required')">Выберите заказчика</mat-error>
         </mat-form-field>
 
         <mat-form-field>
           <input type="number" matInput formControlName="weight" placeholder="Вес">
+          <mat-error *ngIf="form.get('weight').hasError('required')">Введите вес</mat-error>
         </mat-form-field>
 
         <mat-form-field>

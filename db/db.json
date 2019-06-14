@@ -9,6 +9,21 @@
       "name": "Авет",
       "dateStartedToWork": "2019-04-29T20:58:40.877Z",
       "id": 2
+    },
+    {
+      "name": " Barbados",
+      "dateStartedToWork": "2019-06-14T19:28:58.169Z",
+      "id": 3
+    },
+    {
+      "name": "Вареничная",
+      "dateStartedToWork": "2019-06-14T19:29:04.541Z",
+      "id": 4
+    },
+    {
+      "name": "Александр Санн",
+      "dateStartedToWork": "2019-06-14T19:29:13.573Z",
+      "id": 5
     }
   ],
   "orders": [
@@ -27,6 +42,94 @@
       "dateOrdered": "2019-04-17T21:00:00.000Z",
       "dateDelivered": "2019-04-24T21:00:00.000Z",
       "id": 3
+    },
+    {
+      "customer": "Вареничная",
+      "weight": 2,
+      "pricePerKilo": 360,
+      "dateOrdered": "2019-06-14T19:38:59.627Z",
+      "dateDelivered": "2019-06-14T19:38:59.627Z",
+      "id": 4
+    },
+    {
+      "customer": "Александр Санн",
+      "weight": 5,
+      "pricePerKilo": 360,
+      "dateOrdered": "2019-06-14T19:39:06.349Z",
+      "dateDelivered": "2019-06-14T19:39:06.349Z",
+      "id": 5
+    },
+    {
+      "customer": "Test Customer",
+      "weight": 1,
+      "pricePerKilo": 360,
+      "dateOrdered": "2019-06-14T19:39:12.298Z",
+      "dateDelivered": "2019-06-14T19:39:12.298Z",
+      "id": 6
+    },
+    {
+      "customer": " Barbados",
+      "weight": 6,
+      "pricePerKilo": 360,
+      "dateOrdered": "2019-06-14T19:39:16.793Z",
+      "dateDelivered": "2019-06-14T19:39:16.793Z",
+      "id": 7
+    },
+    {
+      "customer": "Вареничная",
+      "weight": 1,
+      "pricePerKilo": 360,
+      "dateOrdered": "2019-06-14T19:39:21.201Z",
+      "dateDelivered": "2019-06-14T19:39:21.201Z",
+      "id": 8
+    },
+    {
+      "customer": "Авет",
+      "weight": 2,
+      "pricePerKilo": 360,
+      "dateOrdered": "2019-06-14T19:39:24.465Z",
+      "dateDelivered": "2019-06-14T19:39:24.465Z",
+      "id": 9
+    },
+    {
+      "customer": "Александр Санн",
+      "weight": 1.5,
+      "pricePerKilo": 360,
+      "dateOrdered": "2019-06-14T19:39:28.648Z",
+      "dateDelivered": "2019-06-14T19:39:28.648Z",
+      "id": 10
+    },
+    {
+      "customer": " Barbados",
+      "weight": 4,
+      "pricePerKilo": 360,
+      "dateOrdered": "2019-06-14T19:39:40.923Z",
+      "dateDelivered": "2019-06-14T19:39:40.923Z",
+      "id": 11
+    },
+    {
+      "customer": "Авет",
+      "weight": 1,
+      "pricePerKilo": 360,
+      "dateOrdered": "2019-06-14T19:39:46.651Z",
+      "dateDelivered": "2019-06-14T19:39:46.651Z",
+      "id": 12
+    },
+    {
+      "customer": "Вареничная",
+      "weight": 3,
+      "pricePerKilo": 360,
+      "dateOrdered": "2019-06-14T19:39:50.406Z",
+      "dateDelivered": "2019-06-14T19:39:50.406Z",
+      "id": 13
+    },
+    {
+      "customer": "Александр Санн",
+      "weight": 0.5,
+      "pricePerKilo": 360,
+      "dateOrdered": "2019-06-14T19:39:54.457Z",
+      "dateDelivered": "2019-06-14T19:39:54.457Z",
+      "id": 14
     }
   ]
 }
